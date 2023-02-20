@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/black">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivInfoIconEditor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/margin_medium_3"
+        app:srcCompat="@drawable/ic_baseline_info_secondary_24dp" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvSaveChangesEditor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ivInfoIconEditor"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/margin_medium_3"
+        android:fontFamily="@font/nunito"
+        android:text="@string/save_changes_dialog_label"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_heading_1x" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvSaveChangesEditor"
+        android:layout_marginTop="@dimen/margin_medium_3"
+        android:layout_marginBottom="@dimen/margin_medium_3"
+        android:orientation="horizontal">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnDiscardDialogEditor"
+            android:layout_width="@dimen/width_dialog_button"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginStart="@dimen/margin_40dp"
+            android:gravity="center"
+            android:text="@string/discard_dialog_label"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_regular_2x"
+            app:backgroundTint="@color/colorRed" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnSaveDialogEditor"
+            android:layout_width="@dimen/width_dialog_button"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginEnd="@dimen/margin_40dp"
+            android:gravity="center"
+            android:text="@string/save_dialog_label"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_regular_2x"
+            app:backgroundTint="@color/colorGreen" />
+
+
+    </FrameLayout>
+
+</RelativeLayout>

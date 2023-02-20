@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="RoundedAlertDialog" parent="ThemeOverlay.MaterialComponents.Dialog">
+        <item name="colorSurface">@color/black</item>
+        <item name="shapeAppearanceOverlay">@style/DialogRoundedCorner</item>
+        <item name="materialAlertDialogTitleTextStyle">@style/DeleteAlertDialogCustomTitle</item>
+        <item name="buttonBarPositiveButtonStyle">@style/DeleteAlertDialogCustomButtons</item>
+        <item name="buttonBarNegativeButtonStyle">@style/DeleteAlertDialogCustomButtons</item>
+        <item name="materialAlertDialogBodyTextStyle">@style/DeleteAlertDialogCustomBodyText</item>
+    </style>
+
+    <style name="DialogRoundedCorner">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerRadius">22dp</item>
+        <item name="cornerSize">22dp</item>
+    </style>
+
+    <style name="DeleteAlertDialogCustomTitle" parent="MaterialAlertDialog.MaterialComponents.Title.Text">
+        <item name="android:textSize">@dimen/text_heading_1x</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="fontFamily">@font/nunito_bold</item>
+    </style>
+
+    <style name="DeleteAlertDialogCustomButtons" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/text_regular_2x_n</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:paddingEnd">@dimen/margin_medium_3_n</item>
+        <item name="android:paddingBottom">@dimen/margin_medium_3_n</item>
+        <item name="fontFamily">@font/nunito</item>
+    </style>
+
+    <style name="DeleteAlertDialogCustomBodyText" parent="MaterialAlertDialog.Material3.Body.Text">
+        <item name="android:textColor">@color/colorRed</item>
+        <item name="android:textSize">@dimen/text_regular_3x</item>
+        <item name="fontFamily">@font/nunito_semibold</item>
+        <item name="android:layout_marginStart">@dimen/margin_medium</item>
+    </style>
+
+</resources>

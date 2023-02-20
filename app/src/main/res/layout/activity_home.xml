@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/homeActivity"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    android:paddingBottom="@dimen/margin_medium_3"
+    tools:context=".ui.activities.HomeActivity">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivEmptyNotesHome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="@dimen/margin_xlarge"
+        android:layout_marginEnd="@dimen/margin_xlarge"
+        android:visibility="visible"
+        app:srcCompat="@drawable/image_note_empty" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <FrameLayout
+                android:id="@+id/flAppBarHome"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin_60dp"
+                android:layout_gravity="top"
+                android:layout_marginStart="@dimen/margin_large"
+                android:layout_marginTop="@dimen/margin_medium_2"
+                android:layout_marginEnd="@dimen/margin_large">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center"
+                    android:text="@string/app_name"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_app_title"
+                    app:fontFamily="@font/nunito_semibold" />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/btnSearchHome"
+                    android:layout_width="@dimen/width_icon_background"
+                    android:layout_height="@dimen/height_icon_background"
+                    android:layout_gravity="bottom|end"
+                    android:layout_marginEnd="@dimen/margin_72dp"
+                    android:elevation="@dimen/margin_medium"
+                    app:cardBackgroundColor="@color/colorPrimaryLight"
+                    app:cardCornerRadius="15dp">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="@dimen/width_icon"
+                        android:layout_height="@dimen/height_icon"
+                        android:layout_gravity="center"
+                        app:srcCompat="@drawable/icon_search" />
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="@dimen/width_icon_background"
+                    android:layout_height="@dimen/height_icon_background"
+                    android:layout_gravity="bottom|end"
+                    android:elevation="@dimen/margin_medium"
+                    app:cardBackgroundColor="@color/colorPrimaryLight"
+                    app:cardCornerRadius="15dp">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="@dimen/width_icon"
+                        android:layout_height="@dimen/height_icon"
+                        android:layout_gravity="center"
+                        app:srcCompat="@drawable/icon_info_outline" />
+
+                </com.google.android.material.card.MaterialCardView>
+
+            </FrameLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvHome"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/flAppBarHome"
+                android:layout_marginTop="@dimen/margin_xlarge"
+                tools:listitem="@layout/view_holder_note_list" />
+
+        </RelativeLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabAddNoteHome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="@dimen/margin_35dp"
+        android:layout_marginBottom="@dimen/margin_xxlarge"
+        android:contentDescription="@string/add_note_content_description"
+        android:scaleType="center"
+        android:src="@drawable/icon_add"
+        app:backgroundTint="@color/colorPrimary"
+        app:elevation="@dimen/margin_medium"
+        app:fabCustomSize="@dimen/fab_size"
+        app:maxImageSize="@dimen/margin_xxlarge"
+        tools:tint="@color/white" />
+
+</RelativeLayout>

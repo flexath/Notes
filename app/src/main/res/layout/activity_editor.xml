@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    android:orientation="vertical"
+    tools:context=".ui.activities.EditorActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:id="@+id/flAppBarEditor"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin_60dp"
+            android:layout_gravity="top"
+            android:layout_marginStart="@dimen/margin_large"
+            android:layout_marginTop="@dimen/margin_medium_2"
+            android:layout_marginEnd="@dimen/margin_large">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/btnBackEditor"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="start|bottom"
+                android:elevation="@dimen/margin_medium"
+                app:cardBackgroundColor="@color/colorPrimaryLight"
+                app:cardCornerRadius="15dp">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    app:srcCompat="@drawable/ic_baseline_chevron_left_white_24dp" />
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/btnEyeEditor"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="bottom|end"
+                android:layout_marginEnd="@dimen/margin_72dp"
+                android:elevation="@dimen/margin_medium"
+                app:cardBackgroundColor="@color/colorPrimaryLight"
+                app:cardCornerRadius="@dimen/margin_15dp">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ivEyeEditor"
+                    android:layout_width="@dimen/width_icon"
+                    android:layout_height="@dimen/height_icon"
+                    android:layout_gravity="center"
+                    app:srcCompat="@drawable/ic_baseline_remove_red_eye_white_24dp" />
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/btnSaveEditor"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="bottom|end"
+                android:elevation="@dimen/margin_medium"
+                app:cardBackgroundColor="@color/colorPrimaryLight"
+                app:cardCornerRadius="@dimen/margin_15dp">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="@dimen/width_icon"
+                    android:layout_height="@dimen/height_icon"
+                    android:layout_gravity="center"
+                    app:srcCompat="@drawable/ic_baseline_save_white_24dp" />
+
+            </com.google.android.material.card.MaterialCardView>
+
+        </FrameLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_large"
+            android:paddingStart="@dimen/margin_medium_2"
+            android:paddingEnd="@dimen/margin_medium_2"
+            android:textColorHint="@color/colorSecondaryText"
+            app:boxBackgroundColor="@color/colorPrimary"
+            app:boxBackgroundMode="none"
+            app:hintEnabled="false"
+            app:hintTextColor="@android:color/transparent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etTitleHome"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="7"
+                android:fontFamily="@font/nunito"
+                android:gravity="top|start"
+                android:hint="@string/title_et_label"
+                android:textColor="@color/white"
+                android:textColorHint="@color/colorSecondaryText"
+                android:textCursorDrawable="@null"
+                android:textSize="@dimen/text_big" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_medium_3"
+            android:paddingStart="@dimen/margin_medium_2"
+            android:paddingEnd="@dimen/margin_medium_2"
+            android:textColorHint="@color/colorSecondaryText"
+            app:boxBackgroundColor="@color/colorPrimary"
+            app:boxBackgroundMode="none"
+            app:hintEnabled="false"
+            app:hintTextColor="@android:color/transparent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etDescriptionHome"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_xlarge"
+                android:autoLink="web|phone|email"
+                android:fontFamily="@font/nunito"
+                android:gravity="top|start"
+                android:hint="@string/type_something_et_label"
+                android:linksClickable="true"
+                android:textColor="@color/white"
+                android:textColorHint="@color/colorSecondaryText"
+                android:textCursorDrawable="@null"
+                android:textSize="@dimen/text_small_2x" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

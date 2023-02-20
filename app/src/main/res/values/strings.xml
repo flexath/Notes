@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Notes</string>
+    <string name="add_note_content_description">Add Note</string>
+    <string name="type_something_et_label">Type Something</string>
+    <string name="title_et_label">Title</string>
+    <string name="save_changes_dialog_label">Save Changes ?</string>
+    <string name="discard_dialog_label">Discard</string>
+    <string name="save_dialog_label">Save</string>
+    <string name="search_by_the_keyword_search_label">Search by the keyword...</string>
+</resources>

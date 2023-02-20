@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_marginStart="@dimen/margin_large"
+    android:layout_marginEnd="@dimen/margin_large"
+    android:layout_marginBottom="@dimen/margin_medium_2"
+    android:background="@drawable/note_pink_rounded_background"
+    android:orientation="horizontal"
+    android:weightSum="6">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/margin_card_medium_2"
+        android:paddingTop="@dimen/margin_card_medium_2"
+        android:paddingBottom="@dimen/margin_card_medium_2"
+        android:layout_marginEnd="@dimen/margin_35dp"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvNoteTitleHome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nunito_bold"
+            android:maxLines="2"
+            tools:text="To Learn List"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_heading_1x" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvNoteDescriptionHome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:fontFamily="@font/nunito_semibold"
+            android:maxLines="7"
+            tools:text="I am aung thiha , junior android developer"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_regular_2x" />
+
+    </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/btnDeleteNoteHome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginBottom="@dimen/margin_small"
+        android:padding="@dimen/margin_medium"
+        android:src="@drawable/ic_baseline_delete_white_24dp" />
+
+</FrameLayout>
