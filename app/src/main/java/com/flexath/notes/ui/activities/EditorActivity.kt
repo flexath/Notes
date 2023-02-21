@@ -4,7 +4,6 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.flexath.notes.R
@@ -19,17 +18,18 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.android.synthetic.main.activity_editor.*
 import kotlinx.android.synthetic.main.dialog_save_note.*
 
-class EditorActivity : AppCompatActivity(),java.io.Serializable {
+class EditorActivity : AppCompatActivity(), java.io.Serializable {
 
     private var isEyeVisible: Boolean = true
     private lateinit var mNoteViewModel: INoteViewModel
     private lateinit var mNoteEntity: NoteEntity
-    private var noteType:String? = null
+    private lateinit var note: NoteEntity
+    private var noteType: String? = null
 
     companion object {
         private const val EXTRA_NOTE_TYPE = "EXTRA NOTE TYPE"
         private const val EXTRA_STRING_TYPE = "EXTRA STRING TYPE"
-        fun newIntentEditor(context: Context, noteType: String?,note:NoteEntity): Intent {
+        fun newIntentEditor(context: Context, noteType: String?, note: NoteEntity?): Intent {
             val intent = Intent(context, EditorActivity::class.java)
             intent.putExtra(EXTRA_STRING_TYPE, noteType)
             intent.putExtra(EXTRA_NOTE_TYPE, note)
@@ -42,10 +42,23 @@ class EditorActivity : AppCompatActivity(),java.io.Serializable {
         setContentView(R.layout.activity_editor)
 
         setUpListeners()
+        setUpViewModelAndEditTexts()
 
-        val note = intent?.getSerializableExtra(EXTRA_NOTE_TYPE) as NoteEntity
+        note = intent?.getSerializableExtra(EXTRA_NOTE_TYPE) as NoteEntity
         noteType = intent?.getStringExtra(EXTRA_STRING_TYPE)
 
+        setUpEditTextsOfNoteType()
+    }
+
+    private fun setUpEditTextsOfNoteType() {
+        if (noteType == "insert") {
+            etTitleHome.setText("")
+            etDescriptionHome.setText("")
+        } else {
+            etTitleHome.setText(note.title)
+            etDescriptionHome.setText(note.description)
+            mNoteEntity.id = note.id
+        }
     }
 
     private fun setUpListeners() {
@@ -80,11 +93,27 @@ class EditorActivity : AppCompatActivity(),java.io.Serializable {
     @Deprecated("Deprecated in Java")
     @Suppress("DEPRECATION")
     override fun onBackPressed() {
-        setUpViewModelAndEditTexts()
         super.onBackPressed()
+        if (noteType == "insert") {
+            insertNote()
+        } else {
+            if(note.title != etTitleHome.text.toString() && note.description != etDescriptionHome.text.toString()){
+                updateNote()
+            }
+        }
+    }
+
+    private fun insertNote() {
+        setUpEditTexts()
         if (mNoteEntity.title!!.isNotEmpty() || mNoteEntity.description!!.isNotEmpty()) {
             mNoteViewModel.insertNote(note = mNoteEntity)
         }
+    }
+
+    private fun updateNote() {
+        mNoteEntity.title = etTitleHome.text.toString()
+        mNoteEntity.description = etDescriptionHome.text.toString()
+        mNoteViewModel.updateNote(mNoteEntity)
     }
 
     private fun setUpEditTexts() {
@@ -113,8 +142,22 @@ class EditorActivity : AppCompatActivity(),java.io.Serializable {
             dialog.dismiss()
         }
 
-        dialog.btnSaveDialogEditor.setOnClickListener {
-            Toast.makeText(this, "Changes saved", Toast.LENGTH_SHORT).show()
+        if (noteType == "insert") {
+            val dialogText = "Save Changes ?"
+            dialog.tvSaveChangesEditor.text = dialogText
+            dialog.btnSaveDialogEditor.setOnClickListener {
+                insertNote()
+                finish()
+            }
+        } else {
+            val dialogText = "Are you sure you want to discard your changes ?"
+            dialog.tvSaveChangesEditor.text = dialogText
+            dialog.btnSaveDialogEditor.setOnClickListener {
+                updateNote()
+                finish()
+            }
         }
+
+
     }
 }

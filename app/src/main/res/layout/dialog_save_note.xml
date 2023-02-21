@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/black">
 
     <androidx.appcompat.widget.AppCompatImageView
@@ -18,10 +19,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/ivInfoIconEditor"
+        android:layout_marginStart="@dimen/margin_card_medium_2"
+        android:layout_marginEnd="@dimen/margin_card_medium_2"
+        android:gravity="center_horizontal"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/margin_medium_3"
         android:fontFamily="@font/nunito"
-        android:text="@string/save_changes_dialog_label"
+        tools:text="@string/save_changes_dialog_label"
         android:textColor="@color/white"
         android:textSize="@dimen/text_heading_1x" />
 
