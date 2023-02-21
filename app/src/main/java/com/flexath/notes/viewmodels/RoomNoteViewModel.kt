@@ -22,5 +22,5 @@ class RoomNoteViewModel(private val repository:INoteRepository) : ViewModel(),IN
         repository.updateNote(note)
     }
 
-    override fun getAllNotes(): LiveData<List<NoteEntity>> = repository.getAllNotes()
+    override fun getAllNotes(): LiveData<List<NoteEntity>>? = repository.getAllNotes()
 }

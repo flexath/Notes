@@ -7,5 +7,5 @@ interface INoteRepository {
     suspend fun insertNote(note:NoteEntity)
     suspend fun deleteNote(note:NoteEntity)
     suspend fun updateNote(note:NoteEntity)
-    fun getAllNotes():LiveData<List<NoteEntity>>
+    fun getAllNotes():LiveData<List<NoteEntity>>?
 }

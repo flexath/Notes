@@ -24,6 +24,7 @@ class NoteViewHolder(itemView: View,private val delegate:INoteDelegate) : Recycl
         this.note = note
         itemView.tvNoteTitleHome.text = note.title
         itemView.tvNoteDescriptionHome.text = note.description
+        itemView.tvNoteDateHome.text = note.date
         itemView.background = itemView.resources.getDrawable(note.color)
 
     }

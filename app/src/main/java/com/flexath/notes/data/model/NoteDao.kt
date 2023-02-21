@@ -15,5 +15,5 @@ interface NoteDao {
     suspend fun deleteNote(note: NoteEntity)
 
     @Query("SELECT * FROM note_table ORDER BY id ASC")
-    fun getAllNotes():LiveData<List<NoteEntity>>
+    fun getAllNotes():LiveData<List<NoteEntity>>?
 }

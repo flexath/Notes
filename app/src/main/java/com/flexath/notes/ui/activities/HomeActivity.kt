@@ -15,8 +15,10 @@ import com.flexath.notes.ui.delegates.INoteDelegate
 import com.flexath.notes.viewmodels.INoteViewModel
 import com.flexath.notes.viewmodels.RoomNoteViewModel
 import com.flexath.notes.viewmodels.RoomNoteViewModelFactory
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.android.synthetic.main.activity_home.*
+import kotlinx.android.synthetic.main.layout_bottom_sheet_dialog_info.*
 
 class HomeActivity : AppCompatActivity(), INoteDelegate {
 
@@ -33,18 +35,50 @@ class HomeActivity : AppCompatActivity(), INoteDelegate {
     }
 
     private fun setUpListeners() {
-        btnSearchHome.setOnClickListener {
-            startActivity(SearchActivity.newIntentSearch(this))
-        }
+//        btnSearchHome.setOnClickListener {
+//            startActivity(SearchActivity.newIntentSearch(this))
+//        }
 
         fabAddNoteHome.setOnClickListener {
             startActivity(EditorActivity.newIntentEditor(this, "insert",mNoteAdapter.noteEntity))
         }
+
+        btnInfoHome.setOnClickListener {
+            setUpInfoBottomSheetDialog()
+        }
+    }
+
+    private fun isVisibleContactInfo(dialog: BottomSheetDialog) {
+        var isVisibleContact = false
+        dialog.rlContactBoxInfoHome.setOnClickListener {
+            if(!isVisibleContact) {
+                dialog.ivArrowContactInfoHome.setImageResource(R.drawable.ic_baseline_keyboard_arrow_down_white_24dp)
+                dialog.llContactInfoHome.visibility = View.VISIBLE
+                isVisibleContact = true
+            } else {
+                dialog.ivArrowContactInfoHome.setImageResource(R.drawable.ic_baseline_keyboard_arrow_up_white_24dp)
+                dialog.llContactInfoHome.visibility = View.GONE
+                isVisibleContact = false
+            }
+        }
+    }
+
+    @SuppressLint("InflateParams")
+    private fun setUpInfoBottomSheetDialog() {
+        val bottomDialog = BottomSheetDialog(this,R.style.ModalBottomDialog)
+        bottomDialog.setContentView(R.layout.layout_bottom_sheet_dialog_info)
+        bottomDialog.setCancelable(true)
+
+        bottomDialog.btnCloseInfoHome.setOnClickListener {
+            bottomDialog.dismiss()
+        }
+        isVisibleContactInfo(bottomDialog)
+        bottomDialog.show()
     }
 
     private fun getAllNotesFromDatabase() {
         setUpViewModel()
-        mNoteViewModel.getAllNotes().observe(this) {
+        mNoteViewModel.getAllNotes()?.observe(this) {
             setUpNoteRecyclerView(it)
         }
     }
@@ -82,7 +116,6 @@ class HomeActivity : AppCompatActivity(), INoteDelegate {
             .setNegativeButton("Cancel") { dialog, _ ->
                 dialog.dismiss()
             }.create()
-
         dialog.show()
     }
 

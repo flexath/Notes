@@ -4,6 +4,8 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.flexath.notes.R
@@ -17,13 +19,15 @@ import com.flexath.notes.viewmodels.RoomNoteViewModelFactory
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.android.synthetic.main.activity_editor.*
 import kotlinx.android.synthetic.main.dialog_save_note.*
+import java.text.SimpleDateFormat
+import java.util.*
 
 class EditorActivity : AppCompatActivity(), java.io.Serializable {
 
     private var isEyeVisible: Boolean = true
     private lateinit var mNoteViewModel: INoteViewModel
     private lateinit var mNoteEntity: NoteEntity
-    private lateinit var note: NoteEntity
+    private var note: NoteEntity? = null
     private var noteType: String? = null
 
     companion object {
@@ -37,6 +41,7 @@ class EditorActivity : AppCompatActivity(), java.io.Serializable {
         }
     }
 
+    @Suppress("DEPRECATION")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_editor)
@@ -44,10 +49,22 @@ class EditorActivity : AppCompatActivity(), java.io.Serializable {
         setUpListeners()
         setUpViewModelAndEditTexts()
 
-        note = intent?.getSerializableExtra(EXTRA_NOTE_TYPE) as NoteEntity
+        note = intent?.getSerializableExtra(EXTRA_NOTE_TYPE) as? NoteEntity
         noteType = intent?.getStringExtra(EXTRA_STRING_TYPE)
 
         setUpEditTextsOfNoteType()
+    }
+
+    @Deprecated("Deprecated in Java")
+    @Suppress("DEPRECATION")
+    override fun onBackPressed() {
+        super.onBackPressed()
+        if (noteType == "insert") {
+            Toast.makeText(this,"Note added",Toast.LENGTH_SHORT).show()
+            insertNote()
+        } else {
+            Toast.makeText(this,"Note unsaved",Toast.LENGTH_SHORT).show()
+        }
     }
 
     private fun setUpEditTextsOfNoteType() {
@@ -55,9 +72,9 @@ class EditorActivity : AppCompatActivity(), java.io.Serializable {
             etTitleHome.setText("")
             etDescriptionHome.setText("")
         } else {
-            etTitleHome.setText(note.title)
-            etDescriptionHome.setText(note.description)
-            mNoteEntity.id = note.id
+            etTitleHome.setText(note?.title)
+            etDescriptionHome.setText(note?.description)
+            mNoteEntity.id = note?.id ?: 0
         }
     }
 
@@ -90,17 +107,33 @@ class EditorActivity : AppCompatActivity(), java.io.Serializable {
         setUpEditTexts()
     }
 
-    @Deprecated("Deprecated in Java")
-    @Suppress("DEPRECATION")
-    override fun onBackPressed() {
-        super.onBackPressed()
-        if (noteType == "insert") {
-            insertNote()
-        } else {
-            if(note.title != etTitleHome.text.toString() && note.description != etDescriptionHome.text.toString()){
-                updateNote()
-            }
-        }
+    private fun setUpEditTexts() {
+        val title = etTitleHome?.text?.toString()
+        val description = etDescriptionHome?.text?.toString()
+        val color = ColorNote.colorList.random()
+        val date = getNoteDate()
+        mNoteEntity = NoteEntity(title, description, color, date)
+    }
+
+    private fun setUpViewModel() {
+        val dao = NoteDatabase.getInstance(this).noteDao
+        val repository = RoomNoteRepository(dao)
+        val factory = RoomNoteViewModelFactory(repository)
+        mNoteViewModel = ViewModelProvider(this, factory)[RoomNoteViewModel::class.java]
+    }
+
+    private fun Date.toString(format: String, locale: Locale = Locale.getDefault()): String {
+        val formatter = SimpleDateFormat(format, locale)
+        return formatter.format(this)
+    }
+
+    private fun getCurrentDataTime(): Date {
+        return Calendar.getInstance().time
+    }
+
+    private fun getNoteDate(): String {
+        val date = getCurrentDataTime()
+        return date.toString("yyyy/MM/dd HH:mm:ss")
     }
 
     private fun insertNote() {
@@ -113,21 +146,28 @@ class EditorActivity : AppCompatActivity(), java.io.Serializable {
     private fun updateNote() {
         mNoteEntity.title = etTitleHome.text.toString()
         mNoteEntity.description = etDescriptionHome.text.toString()
+        mNoteEntity.date = getNoteDate()
         mNoteViewModel.updateNote(mNoteEntity)
     }
 
-    private fun setUpEditTexts() {
-        val title = etTitleHome?.text?.toString()
-        val description = etDescriptionHome?.text?.toString()
-        val color = ColorNote.colorList.random()
-        mNoteEntity = NoteEntity(title, description, color)
-    }
-
-    private fun setUpViewModel() {
-        val dao = NoteDatabase.getInstance(this).noteDao
-        val repository = RoomNoteRepository(dao)
-        val factory = RoomNoteViewModelFactory(repository)
-        mNoteViewModel = ViewModelProvider(this, factory)[RoomNoteViewModel::class.java]
+    private fun setUpSaveDialog(dialog: AlertDialog) {
+        if (noteType == "insert") {
+            val dialogText = "Save Note ?"
+            dialog.tvSaveChangesEditor.text = dialogText
+            dialog.btnSaveDialogEditor.setOnClickListener {
+                insertNote()
+                Toast.makeText(this,"Note saved",Toast.LENGTH_SHORT).show()
+                finish()
+            }
+        } else {
+            val dialogText = "Are you sure you want to change ?"
+            dialog.tvSaveChangesEditor.text = dialogText
+            dialog.btnSaveDialogEditor.setOnClickListener {
+                updateNote()
+                Toast.makeText(this,"Note updated",Toast.LENGTH_SHORT).show()
+                finish()
+            }
+        }
     }
 
     private fun setUpSaveNoteAlertDialog() {
@@ -135,29 +175,11 @@ class EditorActivity : AppCompatActivity(), java.io.Serializable {
             .setView(R.layout.dialog_save_note)
             .setCancelable(false)
             .create()
-
         dialog.show()
 
         dialog.btnDiscardDialogEditor.setOnClickListener {
             dialog.dismiss()
         }
-
-        if (noteType == "insert") {
-            val dialogText = "Save Changes ?"
-            dialog.tvSaveChangesEditor.text = dialogText
-            dialog.btnSaveDialogEditor.setOnClickListener {
-                insertNote()
-                finish()
-            }
-        } else {
-            val dialogText = "Are you sure you want to discard your changes ?"
-            dialog.tvSaveChangesEditor.text = dialogText
-            dialog.btnSaveDialogEditor.setOnClickListener {
-                updateNote()
-                finish()
-            }
-        }
-
-
+        setUpSaveDialog(dialog)
     }
 }

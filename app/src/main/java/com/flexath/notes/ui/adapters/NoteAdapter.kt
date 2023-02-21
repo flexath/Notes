@@ -16,7 +16,7 @@ class NoteAdapter(
     private val viewModel: INoteViewModel
 ) : RecyclerView.Adapter<NoteViewHolder>() {
 
-    lateinit var noteEntity:NoteEntity
+    var noteEntity:NoteEntity? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NoteViewHolder {
         val view = LayoutInflater.from(parent.context)

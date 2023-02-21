@@ -9,7 +9,8 @@ import java.io.Serializable
 data class NoteEntity(
     @ColumnInfo(name = "title") var title: String?,
     @ColumnInfo(name = "description") var description: String?,
-    @ColumnInfo(name = "color") var color: Int
+    @ColumnInfo(name = "color") var color: Int,
+    @ColumnInfo(name = "date") var date: String?
 ) : Serializable {
     @PrimaryKey(autoGenerate = true)
     var id: Int = 0

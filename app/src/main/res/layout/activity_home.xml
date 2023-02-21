@@ -51,6 +51,7 @@
                     android:layout_width="@dimen/width_icon_background"
                     android:layout_height="@dimen/height_icon_background"
                     android:layout_gravity="bottom|end"
+                    android:visibility="gone"
                     android:layout_marginEnd="@dimen/margin_72dp"
                     android:elevation="@dimen/margin_medium"
                     app:cardBackgroundColor="@color/colorPrimaryLight"
@@ -65,6 +66,7 @@
                 </com.google.android.material.card.MaterialCardView>
 
                 <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/btnInfoHome"
                     android:layout_width="@dimen/width_icon_background"
                     android:layout_height="@dimen/height_icon_background"
                     android:layout_gravity="bottom|end"

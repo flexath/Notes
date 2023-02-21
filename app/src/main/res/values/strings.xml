@@ -7,4 +7,23 @@
     <string name="discard_dialog_label">Discard</string>
     <string name="save_dialog_label">Save</string>
     <string name="search_by_the_keyword_search_label">Search by the keyword...</string>
+    <string name="designed_by_label">Designed By</string>
+    <string name="close_label">Close</string>
+    <string name="close_info_label">Close Info</string>
+    <string name="developed_by_label">Developed By</string>
+    <string name="contact_label">Contact</string>
+    <string name="instagram_lbl">Instagram</string>
+    <string name="facebook_lbl">Facebook</string>
+    <string name="linkedin_lbl">LinkedIn</string>
+    <string name="youtube_lbl">Youtube</string>
+    <string name="phone_lbl">Phone</string>
+    <string name="github_lbl">Github</string>
+    <string name="divya_kelaskar_figma_lbl">Divya Kelaskar (Figma)</string>
+    <string name="aung_thiha_lbl">Aung Thiha</string>
+    <string name="github_link_lbl">https://github.com/flexath/Notes</string>
+    <string name="ph_no_lbl">09795448753</string>
+    <string name="youtube_link_lbl">https://www.youtube.com/@TheFlexath</string>
+    <string name="linkedin_link_lbl">https://www.linkedin.com/in/flexath/</string>
+    <string name="facebook_link_lbl">https://www.facebook.com/profile.php?id=100027249152491</string>
+    <string name="instagram_link_lbl">https://www.instagram.com/flexath11/</string>
 </resources>

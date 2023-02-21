@@ -8,5 +8,5 @@ interface INoteViewModel {
     fun insertNote(note: NoteEntity): Job
     fun deleteNote(note: NoteEntity): Job
     fun updateNote(note: NoteEntity): Job
-    fun getAllNotes(): LiveData<List<NoteEntity>>
+    fun getAllNotes(): LiveData<List<NoteEntity>>?
 }

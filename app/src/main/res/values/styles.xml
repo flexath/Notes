@@ -37,4 +37,14 @@
         <item name="android:layout_marginStart">@dimen/margin_medium</item>
     </style>
 
+    <style name="ModalBottomDialog" parent="Theme.Design.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/ModalBottomDialogBackground</item>
+        <item name="background">@android:color/white</item>
+    </style>
+
+    <style name="ModalBottomDialogBackground" parent="Widget.Design.BottomSheet.Modal">
+        <item name="background">@drawable/dialog_bottom_sheet_background</item>
+
+    </style>
+
 </resources>

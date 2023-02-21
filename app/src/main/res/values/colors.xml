@@ -15,4 +15,6 @@
 
     <color name="colorGreen">#4CAF50</color>
     <color name="colorRed">#FF0000</color>
+    <color name="colorLightYellow">#FFF599</color>
+    <color name="colorPrimaryTransparent">#F2252525</color>
 </resources>

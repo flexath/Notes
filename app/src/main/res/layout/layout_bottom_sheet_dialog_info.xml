@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/secondMovieDetailsLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorPrimaryDark"
+    android:orientation="vertical">
+
+    <View
+        android:layout_width="@dimen/width_info_top_bar"
+        android:layout_height="@dimen/height_info_top_bar"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/margin_15dp"
+        android:layout_marginBottom="@dimen/margin_10dp"
+        android:background="@color/colorLightYellow" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_medium_3"
+            android:layout_marginTop="@dimen/margin_10dp"
+            android:orientation="horizontal"
+            android:padding="@dimen/margin_5dp">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="@dimen/width_info"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nunito"
+                android:gravity="start|center_vertical"
+                android:maxLines="1"
+                android:text="@string/designed_by_label"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_regular_2x_n" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvDesignedByHome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_15dp"
+                android:fontFamily="@font/nunito_bold"
+                android:gravity="start|center_vertical"
+                android:maxLines="2"
+                android:text="@string/divya_kelaskar_figma_lbl"
+                android:textColor="@color/white"
+                android:textIsSelectable="true"
+                android:textSize="@dimen/text_regular_2x_n" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_medium_3"
+            android:layout_marginTop="@dimen/margin_15dp"
+            android:orientation="horizontal"
+            android:padding="@dimen/margin_5dp">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="@dimen/width_info"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nunito"
+                android:gravity="start|center_vertical"
+                android:maxLines="1"
+                android:text="@string/developed_by_label"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_regular_2x_n" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvDevelopedByHome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_15dp"
+                android:fontFamily="@font/nunito_bold"
+                android:gravity="start|center_vertical"
+                android:maxLines="2"
+                android:text="@string/aung_thiha_lbl"
+                android:textColor="@color/white"
+                android:textIsSelectable="true"
+                android:textSize="@dimen/text_regular_2x_n" />
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/rlContactBoxInfoHome"
+            android:layout_width="@dimen/width_contact_box"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/margin_15dp">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nunito"
+                android:gravity="center"
+                android:maxLines="1"
+                android:text="@string/contact_label"
+                android:textAllCaps="false"
+                android:textColor="@color/colorLightYellow"
+                android:textSize="@dimen/text_regular_2x_n"
+                app:cornerRadius="10dp"
+                app:rippleColor="@color/white"
+                tools:ignore="RelativeOverlap" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivArrowContactInfoHome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                app:srcCompat="@drawable/ic_baseline_keyboard_arrow_up_white_24dp" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/llContactInfoHome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_10dp"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_medium_3"
+                android:orientation="horizontal"
+                android:padding="@dimen/margin_5dp">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="@dimen/width_info"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nunito"
+                    android:gravity="start|center_vertical"
+                    android:maxLines="1"
+                    android:text="@string/github_lbl"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_regular_2x_n" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tvGithubInfoHome"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_15dp"
+                    android:fontFamily="@font/nunito_semibold"
+                    android:gravity="start|center_vertical"
+                    android:linksClickable="true"
+                    android:maxLines="2"
+                    android:text="@string/github_link_lbl"
+                    android:textColor="@color/white"
+                    android:textIsSelectable="true"
+                    android:textSize="@dimen/text_regular_2x_n" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_medium_3"
+                android:layout_marginTop="@dimen/margin_15dp"
+                android:orientation="horizontal"
+                android:padding="@dimen/margin_5dp">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="@dimen/width_info"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nunito"
+                    android:gravity="start|center_vertical"
+                    android:maxLines="1"
+                    android:text="@string/phone_lbl"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_regular_2x_n" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tvPhNoInfoHome"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_15dp"
+                    android:fontFamily="@font/nunito_semibold"
+                    android:gravity="start|center_vertical"
+                    android:maxLines="2"
+                    android:text="@string/ph_no_lbl"
+                    android:textColor="@color/white"
+                    android:textIsSelectable="true"
+                    android:textSize="@dimen/text_regular_2x_n" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_medium_3"
+                android:layout_marginTop="@dimen/margin_15dp"
+                android:orientation="horizontal"
+                android:padding="@dimen/margin_5dp">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="@dimen/width_info"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nunito"
+                    android:gravity="start|center_vertical"
+                    android:maxLines="1"
+                    android:text="@string/youtube_lbl"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_regular_2x_n" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tvYoutubeInfoHome"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_15dp"
+                    android:fontFamily="@font/nunito_semibold"
+                    android:gravity="start|center_vertical"
+                    android:linksClickable="true"
+                    android:maxLines="2"
+                    android:text="@string/youtube_link_lbl"
+                    android:textColor="@color/white"
+                    android:textIsSelectable="true"
+                    android:textSize="@dimen/text_regular_2x_n" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_medium_3"
+                android:layout_marginTop="@dimen/margin_15dp"
+                android:orientation="horizontal"
+                android:padding="@dimen/margin_5dp">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="@dimen/width_info"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nunito"
+                    android:gravity="start|center_vertical"
+                    android:maxLines="1"
+                    android:text="@string/linkedin_lbl"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_regular_2x_n" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tvLinkedInInfoHome"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_15dp"
+                    android:fontFamily="@font/nunito_semibold"
+                    android:gravity="start|center_vertical"
+                    android:linksClickable="true"
+                    android:maxLines="2"
+                    android:text="@string/linkedin_link_lbl"
+                    android:textColor="@color/white"
+                    android:textIsSelectable="true"
+                    android:textSize="@dimen/text_regular_2x_n" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_medium_3"
+                android:layout_marginTop="@dimen/margin_15dp"
+                android:orientation="horizontal"
+                android:padding="@dimen/margin_5dp">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="@dimen/width_info"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nunito"
+                    android:gravity="start|center_vertical"
+                    android:maxLines="1"
+                    android:text="@string/instagram_lbl"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_regular_2x_n" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tvInstagramInfoHome"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_15dp"
+                    android:fontFamily="@font/nunito_semibold"
+                    android:gravity="start|center_vertical"
+                    android:linksClickable="true"
+                    android:maxLines="2"
+                    android:text="@string/instagram_link_lbl"
+                    android:textColor="@color/white"
+                    android:textIsSelectable="true"
+                    android:textSize="@dimen/text_regular_2x_n" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnCloseInfoHome"
+            android:layout_width="@dimen/width_btn_close"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/margin_medium_3"
+            android:layout_marginBottom="@dimen/margin_medium_3"
+            android:contentDescription="@string/close_info_label"
+            android:fontFamily="@font/nunito_bold"
+            android:paddingTop="@dimen/margin_medium"
+            android:paddingBottom="@dimen/margin_medium"
+            android:text="@string/close_label"
+            android:textAllCaps="true"
+            android:textColor="@color/colorLightYellow"
+            android:textSize="@dimen/text_small_2x"
+            app:cornerRadius="@dimen/margin_15dp"
+            app:rippleColor="@color/white" />
+    </LinearLayout>
+
+</LinearLayout>
