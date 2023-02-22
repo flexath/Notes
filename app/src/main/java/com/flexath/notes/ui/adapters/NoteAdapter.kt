@@ -1,5 +1,6 @@
 package com.flexath.notes.ui.adapters
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -9,11 +10,11 @@ import com.flexath.notes.ui.delegates.INoteDelegate
 import com.flexath.notes.ui.viewholders.NoteViewHolder
 import com.flexath.notes.viewmodels.INoteViewModel
 import kotlinx.android.synthetic.main.view_holder_note_list.view.*
+import java.util.ArrayList
 
 class NoteAdapter(
     private val delegate: INoteDelegate,
-    private val noteList: List<NoteEntity>,
-    private val viewModel: INoteViewModel
+    private var noteList: List<NoteEntity>
 ) : RecyclerView.Adapter<NoteViewHolder>() {
 
     var noteEntity:NoteEntity? = null
@@ -28,21 +29,19 @@ class NoteAdapter(
         val note = noteList[position]
         holder.bindNoteData(noteList[position])
         noteEntity = note
-
-        holder.itemView.btnDeleteNoteHome.setOnClickListener {
-            delegate.onClickDeleteButton(note)
-        }
     }
 
     override fun getItemCount(): Int {
         return noteList.size
     }
 
-    fun deleteNoteDialog(note:NoteEntity) {
-        viewModel.deleteNote(note)
+    @SuppressLint("NotifyDataSetChanged")
+    fun setSearchNoteList(noteListSearch: ArrayList<NoteEntity>) {
+        noteList = noteListSearch
+        notifyDataSetChanged()
     }
 
-    fun getNoteEntity() {
-
+    fun getNoteAt(position: Int): NoteEntity {
+        return noteList[position]
     }
 }

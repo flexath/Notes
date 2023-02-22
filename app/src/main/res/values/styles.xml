@@ -44,7 +44,6 @@
 
     <style name="ModalBottomDialogBackground" parent="Widget.Design.BottomSheet.Modal">
         <item name="background">@drawable/dialog_bottom_sheet_background</item>
-
     </style>
 
 </resources>

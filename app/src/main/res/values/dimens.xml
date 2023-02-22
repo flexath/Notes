@@ -57,4 +57,6 @@
     <dimen name="width_info_top_bar">60dp</dimen>
     <dimen name="height_info_top_bar">2.5dp</dimen>
     <dimen name="width_contact_box">90dp</dimen>
+    <dimen name="width_icon_editor_bar">36dp</dimen>
+    <dimen name="height_icon_editor_bar">36dp</dimen>
 </resources>

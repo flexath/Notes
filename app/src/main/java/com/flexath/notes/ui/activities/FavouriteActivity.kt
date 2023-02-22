@@ -6,16 +6,16 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.flexath.notes.R
 
-class SearchActivity : AppCompatActivity() {
+class FavouriteActivity : AppCompatActivity() {
 
     companion object {
         fun newIntentSearch(context: Context) : Intent {
-            return Intent(context,SearchActivity::class.java)
+            return Intent(context,FavouriteActivity::class.java)
         }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_search)
+        setContentView(R.layout.activity_favourite)
     }
 }

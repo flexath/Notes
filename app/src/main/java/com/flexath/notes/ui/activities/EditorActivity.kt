@@ -60,7 +60,6 @@ class EditorActivity : AppCompatActivity(), java.io.Serializable {
     override fun onBackPressed() {
         super.onBackPressed()
         if (noteType == "insert") {
-            Toast.makeText(this,"Note added",Toast.LENGTH_SHORT).show()
             insertNote()
         } else {
             Toast.makeText(this,"Note unsaved",Toast.LENGTH_SHORT).show()
@@ -133,6 +132,7 @@ class EditorActivity : AppCompatActivity(), java.io.Serializable {
 
     private fun getNoteDate(): String {
         val date = getCurrentDataTime()
+//        return SimpleDateFormat("yyyy/MM/dd HH:mm:ss",Locale.getDefault()).format(date)
         return date.toString("yyyy/MM/dd HH:mm:ss")
     }
 
@@ -140,6 +140,7 @@ class EditorActivity : AppCompatActivity(), java.io.Serializable {
         setUpEditTexts()
         if (mNoteEntity.title!!.isNotEmpty() || mNoteEntity.description!!.isNotEmpty()) {
             mNoteViewModel.insertNote(note = mNoteEntity)
+            Toast.makeText(this,"Note added",Toast.LENGTH_SHORT).show()
         }
     }
 

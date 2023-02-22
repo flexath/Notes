@@ -5,38 +5,38 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
-    tools:context=".ui.activities.SearchActivity">
+    tools:context=".ui.activities.FavouriteActivity">
 
     <FrameLayout
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_large"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_margin="@dimen/margin_large"
-        android:layout_height="wrap_content">
+        app:layout_constraintTop_toTopOf="parent">
 
         <androidx.appcompat.widget.AppCompatEditText
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:background="@drawable/dialog_rounded_corner"
+            android:cursorVisible="true"
+            android:gravity="center_vertical"
             android:hint="@string/search_by_the_keyword_search_label"
             android:paddingStart="@dimen/margin_medium_2"
-            android:paddingEnd="@dimen/margin_medium_2"
             android:paddingTop="@dimen/margin_medium"
-            android:textCursorDrawable="@color/white"
-            android:cursorVisible="true"
+            android:paddingEnd="@dimen/margin_medium_2"
             android:paddingBottom="@dimen/margin_medium"
-            android:gravity="center_vertical"
             android:textColor="@color/white"
-            android:textColorHint="@color/colorSecondaryText" />
+            android:textColorHint="@color/colorSecondaryText"
+            android:textCursorDrawable="@color/white" />
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/btnClearTextSearch"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="end|center_vertical"
             android:layout_marginEnd="@dimen/margin_medium_2"
-            app:srcCompat="@drawable/ic_baseline_close_secondary_24dp"
-            android:layout_gravity="end|center_vertical"/>
+            app:srcCompat="@drawable/ic_baseline_close_secondary_24dp" />
 
     </FrameLayout>
 

@@ -23,9 +23,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
             <FrameLayout
                 android:id="@+id/flAppBarHome"
@@ -51,13 +52,14 @@
                     android:layout_width="@dimen/width_icon_background"
                     android:layout_height="@dimen/height_icon_background"
                     android:layout_gravity="bottom|end"
-                    android:visibility="gone"
                     android:layout_marginEnd="@dimen/margin_72dp"
                     android:elevation="@dimen/margin_medium"
+                    android:visibility="visible"
                     app:cardBackgroundColor="@color/colorPrimaryLight"
                     app:cardCornerRadius="15dp">
 
                     <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/ivSearchIconHome"
                         android:layout_width="@dimen/width_icon"
                         android:layout_height="@dimen/height_icon"
                         android:layout_gravity="center"
@@ -84,15 +86,31 @@
 
             </FrameLayout>
 
+            <androidx.appcompat.widget.SearchView
+                android:id="@+id/searchViewHome"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginStart="@dimen/margin_large"
+                android:layout_marginTop="@dimen/margin_medium_3"
+                android:layout_marginEnd="@dimen/margin_large"
+                android:visibility="gone"
+                android:background="@drawable/dialog_rounded_corner"
+                app:animateNavigationIcon="true"
+                app:autoShowKeyboard="true"
+                app:closeIcon="@drawable/ic_baseline_close_secondary_24dp"
+                app:iconifiedByDefault="false"
+                app:queryBackground="@android:color/transparent"
+                app:queryHint="@string/search_by_the_keyword_search_label"
+                app:searchIcon="@drawable/icon_search" />
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvHome"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/flAppBarHome"
-                android:layout_marginTop="@dimen/margin_xlarge"
+                android:layout_marginTop="@dimen/margin_large"
                 tools:listitem="@layout/view_holder_note_list" />
 
-        </RelativeLayout>
+        </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>
 

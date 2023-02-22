@@ -26,14 +26,14 @@
                 android:id="@+id/btnBackEditor"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:layout_gravity="start|bottom"
+                android:layout_gravity="start|center_vertical"
                 android:elevation="@dimen/margin_medium"
                 app:cardBackgroundColor="@color/colorPrimaryLight"
                 app:cardCornerRadius="15dp">
 
                 <androidx.appcompat.widget.AppCompatImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="@dimen/width_icon_editor_bar"
+                    android:layout_height="@dimen/height_icon_editor_bar"
                     android:layout_gravity="center"
                     app:srcCompat="@drawable/ic_baseline_chevron_left_white_24dp" />
 
@@ -43,7 +43,7 @@
                 android:id="@+id/btnEyeEditor"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:layout_gravity="bottom|end"
+                android:layout_gravity="center_vertical|end"
                 android:layout_marginEnd="@dimen/margin_72dp"
                 android:elevation="@dimen/margin_medium"
                 app:cardBackgroundColor="@color/colorPrimaryLight"
@@ -62,7 +62,7 @@
                 android:id="@+id/btnSaveEditor"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:layout_gravity="bottom|end"
+                android:layout_gravity="center_vertical|end"
                 android:elevation="@dimen/margin_medium"
                 app:cardBackgroundColor="@color/colorPrimaryLight"
                 app:cardCornerRadius="@dimen/margin_15dp">
