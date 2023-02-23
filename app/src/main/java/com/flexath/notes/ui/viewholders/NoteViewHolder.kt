@@ -1,11 +1,9 @@
 package com.flexath.notes.ui.viewholders
 
 import android.view.View
-import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.flexath.notes.data.model.NoteEntity
 import com.flexath.notes.ui.delegates.INoteDelegate
-import kotlinx.android.synthetic.main.activity_home.view.*
 import kotlinx.android.synthetic.main.view_holder_note_list.view.*
 
 class NoteViewHolder(itemView: View,private val delegate:INoteDelegate) : RecyclerView.ViewHolder(itemView) {
@@ -22,10 +20,6 @@ class NoteViewHolder(itemView: View,private val delegate:INoteDelegate) : Recycl
         }
         itemView.btnDeleteNoteHome.setOnClickListener {
             delegate.onClickDeleteButton(note)
-        }
-        itemView.setOnLongClickListener {
-            delegate.onLongClickNote(note)
-            true
         }
     }
 

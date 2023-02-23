@@ -33,11 +33,11 @@
     <dimen name="text_big_2x">60sp</dimen>
     <dimen name="text_big_3x">80sp</dimen>
 
-    <dimen name="text_app_title">42sp</dimen>
+    <dimen name="text_app_title">44sp</dimen>
     <dimen name="width_icon">24dp</dimen>
     <dimen name="height_icon">24dp</dimen>
-    <dimen name="width_icon_background">50dp</dimen>
-    <dimen name="height_icon_background">50dp</dimen>
+    <dimen name="width_icon_background">44dp</dimen>
+    <dimen name="height_icon_background">44dp</dimen>
     <dimen name="margin_72dp">72dp</dimen>
     <dimen name="margin_35dp">35dp</dimen>
     <dimen name="fab_size">70dp</dimen>
@@ -59,4 +59,8 @@
     <dimen name="width_contact_box">90dp</dimen>
     <dimen name="width_icon_editor_bar">36dp</dimen>
     <dimen name="height_icon_editor_bar">36dp</dimen>
+    <dimen name="margin_70dp">60dp</dimen>
+    <dimen name="margin_140dp">120dp</dimen>
+    <dimen name="width_icon_other">40dp</dimen>
+    <dimen name="height_icon_other">40dp</dimen>
 </resources>

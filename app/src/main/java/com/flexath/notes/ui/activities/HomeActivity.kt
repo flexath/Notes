@@ -74,7 +74,6 @@ class HomeActivity : AppCompatActivity(), INoteDelegate {
         btnInfoHome.setOnClickListener {
             setUpInfoBottomSheetDialog()
         }
-
     }
 
     @SuppressLint("InflateParams")
@@ -115,13 +114,6 @@ class HomeActivity : AppCompatActivity(), INoteDelegate {
         }).attachToRecyclerView(recyclerView)
     }
 
-    private fun setUpViewModel() {
-        val dao = NoteDatabase.getInstance(this).noteDao
-        val repository = RoomNoteRepository(dao)
-        val factory = RoomNoteViewModelFactory(repository)
-        mNoteViewModel = ViewModelProvider(this, factory)[RoomNoteViewModel::class.java]
-    }
-
     private fun isVisibleContactInfo(dialog: BottomSheetDialog) {
         var isVisibleContact = false
         dialog.rlContactBoxInfoHome.setOnClickListener {
@@ -135,6 +127,13 @@ class HomeActivity : AppCompatActivity(), INoteDelegate {
                 isVisibleContact = false
             }
         }
+    }
+
+    private fun setUpViewModel() {
+        val dao = NoteDatabase.getInstance(this).noteDao
+        val repository = RoomNoteRepository(dao)
+        val factory = RoomNoteViewModelFactory(repository)
+        mNoteViewModel = ViewModelProvider(this, factory)[RoomNoteViewModel::class.java]
     }
 
     private fun getAllNotesFromDatabase() {
@@ -180,10 +179,5 @@ class HomeActivity : AppCompatActivity(), INoteDelegate {
 
     override fun onClickDeleteButton(note: NoteEntity) {
         setUpDeleteConfirmationDialog(note)
-    }
-
-    override fun onLongClickNote(note: NoteEntity) {
-        Toast.makeText(this,"Added to favourites",Toast.LENGTH_SHORT).show()
-        startActivity(FavouriteActivity.newIntentSearch(this))
     }
 }

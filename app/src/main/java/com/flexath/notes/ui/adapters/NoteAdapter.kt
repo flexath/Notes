@@ -8,9 +8,7 @@ import com.flexath.notes.R
 import com.flexath.notes.data.model.NoteEntity
 import com.flexath.notes.ui.delegates.INoteDelegate
 import com.flexath.notes.ui.viewholders.NoteViewHolder
-import com.flexath.notes.viewmodels.INoteViewModel
 import kotlinx.android.synthetic.main.view_holder_note_list.view.*
-import java.util.ArrayList
 
 class NoteAdapter(
     private val delegate: INoteDelegate,
